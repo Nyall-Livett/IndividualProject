@@ -12,9 +12,11 @@ JDK 1.8 https://docs.aws.amazon.com/corretto/latest/corretto-8-ug/downloads-list
 JDK 11 https://docs.aws.amazon.com/corretto/latest/corretto-11-ug/downloads-list.html
 Python3.5+ https://www.python.org/downloads/
 
-command 'git clone https://github.com/Nyall-Livett/6CCS3PRJ'
+command `git clone https://github.com/Nyall-Livett/IndividualProject.git`
+or
+command `git@github.com:Nyall-Livett/IndividualProject.git`
 
-command `cd 6CCS3PRJ`
+command `cd IndividualProject`
 
 Create and activate python environment where the libraries can be installed.
 
@@ -24,13 +26,22 @@ command `source myenv/bin/activate`
 Install the libraries.
 command `pip install -r requirements.txt`
 
+Create the directory to hold the projects in the research
+command `mkdir projects-used-for-data`
 command `cd projects-used-for-data`
 
-command 'git clone https://github.com/Nyall-Livett/6CCS3PRJ-sample-project'
+Add project to directory
+command `git clone https://github.com/Nyall-Livett/6CCS3PRJ-sample-project`
+or 
+command `git@github.com:Nyall-Livett/IndividualProject-sample.git`
 
-command 'cd ..'
+Go back to root
+command `cd ..`
 
 Add Api key to ./Config.py
+
+Create directory to hold the processed files
+command `mkdir processed_files`
 
 Initiate Dataprocessing stage. This traverse the project, finds test class pairs.
 Follow prompts on screen.
