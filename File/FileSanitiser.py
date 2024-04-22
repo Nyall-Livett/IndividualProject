@@ -1,5 +1,9 @@
 import re
 
+"""
+This class removes JavaDoc from files
+"""
+
 class FileSanitiser:
     """
     Remove leading javadoc from the string content

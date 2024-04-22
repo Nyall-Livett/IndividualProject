@@ -1,5 +1,9 @@
 from abc import ABC, abstractmethod
 
+"""
+Abstract class for handlers
+"""
+
 class Handler(ABC):
 
     @abstractmethod

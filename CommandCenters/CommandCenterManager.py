@@ -1,5 +1,9 @@
 from CommandCenters.BuildSystemEnum import BuildSystem
 from CommandCenters.MavenCommandCenter import MavenCommandCenter
+
+"""
+This class return the correct command center depeneding the buildtool enum
+"""
 class CommandCenterManager():
 
     def __init__(self, build_system) -> None:

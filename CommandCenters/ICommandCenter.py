@@ -3,6 +3,9 @@ import subprocess
 import os
 from Helper.TerminalPrinter import TerminalPrinter
 
+"""
+This class implements processes shared by all command centers
+"""
 class ICommandCenter(ABC):
 
     def __init__(self, project_name):

@@ -4,6 +4,10 @@ from LLM.OpenAiHelper import OpenAiHelper
 from Helper.TerminalPrinter import TerminalPrinter
 from Config import Config
 
+"""
+This class is a implementation of Language model used in the evaluation
+"""
+
 class ChatGptModelTuned(ILanguageModel):
 
     CLIENT = OpenAI(api_key=Config.get_key())

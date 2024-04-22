@@ -1,5 +1,9 @@
 from abc import ABC, abstractmethod
 
+"""
+Abstract class for Language models
+"""
+
 class ILanguageModel(ABC):
 
     @abstractmethod

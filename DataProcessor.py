@@ -9,6 +9,11 @@ from DataProcessing.TrainingDataGenerator import TrainingDataGenerator
 from LLM.OpenAIUploader import OpenAIUploader
 from DataProcessing.TrainingDataValidator import TrainingDataValidator
 
+"""
+Entry point for proccessing the data, initiates the extraction, splitting, formatting
+uploading and training of the data.
+"""
+
 class DataProcesser:
     
     # Name of directory where the projects used for data collection are
@@ -24,47 +29,51 @@ class DataProcesser:
 
 
     def process_projects(self):
+        """
+        Process projects such retrieving the projects, extract class test pairs, split the 
+        data, generate the training the data, validate, upload and train the model
+        """
         dirs = self.get_subdirectory_paths()
 
+        # Process the pairs and make sure they are under the token limit
         for dir in dirs:
-            # if dir != "/Users/nyalllivett/Desktop/LLMTestGeneration/projects-used-for-data/dolphinscheduler":
-            #     continue
             test_files, non_test_files = self.get_file_pairs(dir)
             self.process_pairs(self.extract_project_name(dir), test_files, non_test_files)
 
+        # Split the projects into training and test data
         splitter = DataSplitter()
-
         splitter.split_project_folders()
 
+        # Generate the training data
         generate_response = input("Do you want to generate the training data? : ").strip().lower()
-        
         if generate_response == 'yes' or generate_response == 'y':
             training_data_generator = TrainingDataGenerator()
             training_data_generator.generate()
         else:
             return
 
+        # Validate the training data that has been generated 
         validator = TrainingDataValidator("training_data.jsonl")
         validator.validate()
 
-
+        # Upload the training data file to OpenAI servers
         upload_response = input("Do you want to upload the training data? : ").strip().lower()
-        
         if upload_response == 'yes' or upload_response == 'y':
-
             openai_file_uploader = OpenAIUploader()
             file_id = openai_file_uploader.upload_file()
             train_response = input("Do you want to train the model on the test file? : ").strip().lower()
+            # Train a model on the data
             if train_response == 'yes' or train_response == 'y':
                 openai_file_uploader.train_model(file_id)
                 
 
-    """
-    Returns all subdirectories within the PROJECTS_FOR_DATA directory - these subdirectories are the 
-    projects that are going to be used to extract classes and test classes from.
-    The iterable exclude_dirs include directory names that shouldnt be included in the class extraction
-    """
+
     def get_subdirectory_paths(self, exclude_dirs=[]) -> list:
+        """
+        Returns all subdirectories within the PROJECTS_FOR_DATA directory - these subdirectories are the 
+        projects that are going to be used to extract classes and test classes from.
+        The iterable exclude_dirs include directory names that shouldnt be included in the class extraction
+        """
         self.printer.pretty_print("Finding subdirectories")
  
         subdirectories = [os.path.join(self.projects_for_data_dir, d) for d in os.listdir(self.projects_for_data_dir) 
@@ -76,15 +85,15 @@ class DataProcesser:
                 self.printer.print_with_color(self.extract_project_name(subdir), "yellow")
         
         return subdirectories
-    
 
-    """
-    Takes a subdirectory (project) to walk through and find classes and test classes that follow these rules
-    Example.java
-    ExampleTest.java
-    and puts them into a dictionary with the key as the file name and the value as the file path
-    """
+
     def get_file_pairs(self, subdirectory):
+        """
+        Takes a subdirectory (project) to walk through and find classes and test classes that follow these rules
+        Example.java
+        ExampleTest.java
+        and puts them into a dictionary with the key as the file name and the value as the file path
+        """
         test_files = {}
         non_test_files = {}
 
@@ -98,12 +107,13 @@ class DataProcesser:
         return test_files, non_test_files
 
 
-    """
-    Walks through the dictionary and checks the whether the key is present in the dictionary which has 
-    the java files, if there is a match that means there is a class and its test file which can be used
-    in training.
-    """
+
     def process_pairs(self, project_name, test_file_dictionary, non_test_file_dictionary):
+        """
+        Walks through the dictionary and checks the whether the key is present in the dictionary which has 
+        the java files, if there is a match that means there is a class and its test file which can be used
+        in training.
+        """
         pairs_found = 0
         pairs_passed = 0
         pairs_failed = 0

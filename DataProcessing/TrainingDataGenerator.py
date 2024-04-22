@@ -1,8 +1,11 @@
 import json
 import os
-import shutil
 from pathlib import Path
 from Helper.TerminalPrinter import TerminalPrinter
+
+"""
+This class is responsible for generating the training data for LLM
+"""
 
 class TrainingDataGenerator:
     SYSTEM : str = "Welcome to the Automated Java Testing Service! Please submit your Java code below"
@@ -17,6 +20,9 @@ class TrainingDataGenerator:
     
 
     def process_project_training_data(self, project_training_dir):
+            """
+            Creates the JSON lines for the training data
+            """
             for subdir, _, files in os.walk(project_training_dir):
                 for file in files:
                     if file.startswith("."):
@@ -50,6 +56,9 @@ class TrainingDataGenerator:
 
 
     def generate(self):
+        """
+        Generate training data for all the training data directories in processed_files dir
+        """
         for project_dir in os.listdir(self.processed_files_dir):
             project_path = Path(self.processed_files_dir, project_dir, "training_data")
             if project_path.is_dir():
@@ -59,9 +68,6 @@ class TrainingDataGenerator:
             for entry in self.formatted_entries:
                 json_line = json.dumps(entry, ensure_ascii=False) + '\n'
                 output_file.write(json_line)
-        print()
-        self.printer.print_with_color(f"Training data has been generated and saved to {self.OUTPUT_PATH}", "green")
-        print()
 
 generator = TrainingDataGenerator()
 generator.generate()

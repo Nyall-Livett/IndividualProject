@@ -1,6 +1,10 @@
 from CommandCenters.ICommandCenter import ICommandCenter
-from abc import abstractmethod
+from abc import abstractmethod, ABC
 import subprocess
+
+"""
+This class should be overridden by the concrete build tool command centers.
+"""
 
 class BuildToolCommandCenter(ICommandCenter):
 

@@ -1,6 +1,12 @@
 from collections import defaultdict
 import json
 
+"""
+This class validates the training data is in the correct format and that parts arent missing
+This original script has been taken from https://cookbook.openai.com/examples/chat_finetuning_data_prep
+and slightly altered. 
+"""
+
 class TrainingDataValidator:
     
     def __init__(self, file_path):

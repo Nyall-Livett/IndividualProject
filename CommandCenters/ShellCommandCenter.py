@@ -14,7 +14,7 @@ class ShellCommandCenter(ICommandCenter):
         "dolphinscheduler": 11,
         "questdb": 1.8,
         "Hikari": 11,
-        "IndividualProject-sample": 11
+        "Nyall-Livett-IndividualProject-sample": 11
     }
 
     full_classpath_projects: list = ["dolphinscheduler", "jkube"]
@@ -53,11 +53,10 @@ class ShellCommandCenter(ICommandCenter):
             '-class', qualified_class_name,
             '-projectCP', classpath,
             "-Duse_separate_classloader=false",
-            "-Dsearch_budget=20",
+            "-Dsearch_budget=30",
             "-Dtest_format=JUNIT5"
         ]
 
-        # self.configure_environment()
         ret = self.run_command(command,  module_dir)
         self.printer.print_with_color("Evosuite has been executed", "green")
         return ret

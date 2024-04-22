@@ -4,6 +4,10 @@ from Helper.TerminalPrinter import TerminalPrinter
 from File.FileSanitiser import FileSanitiser
 from Generation.Result import Result
 
+"""
+This class is a handler for the Human constructed tests. It handles initiating
+the unit tests and mutation testing
+"""
 
 class HumanHandler(Handler):
 

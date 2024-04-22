@@ -1,16 +1,7 @@
 import os
 import csv
-# from Handler.HumanHandler import HumanHandler
-# from Handler.LLM1Handler import LLM1Handler
-# from Handler.EvosuiteHandler import EvosuiteHandler
 
 class CsvWriter:
-
-    # handler_classes = [
-    #         HumanHandler,
-    #         EvosuiteHandler,
-    #         LLM1Handler,
-    #     ]
     
     def __init__(self, file_name, handlers):
         self.file_name = file_name

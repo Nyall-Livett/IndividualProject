@@ -7,6 +7,10 @@ from File.FileSanitiser import FileSanitiser
 from Generation.Result import Result
 import re
 
+"""
+This class is a handler for the final checkpoint when fine tuning LLM, it orchestrates
+generating the testsuite, running unit test and mutation testing.
+"""
 
 class LLM3Handler(Handler):
 

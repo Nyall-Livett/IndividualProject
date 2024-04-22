@@ -4,6 +4,10 @@ from openai import OpenAI
 from Config import Config
 from Helper.TerminalPrinter import TerminalPrinter
 
+"""
+Used to upload files to OpenAI
+"""
+
 class OpenAIUploader:
 
     OUTPUT_PATH = "training_data.jsonl"

@@ -7,7 +7,10 @@ from File.FileSanitiser import FileSanitiser
 from Generation.Result import Result
 import re
 
-
+"""
+This class is a handler for the fine tuned LLM, it orchestrates
+generating the testsuite, running unit test and mutation testing.
+"""
 class LLM4Handler(Handler):
 
     TEST_ERROR_LOOP_COUNT: int = 5

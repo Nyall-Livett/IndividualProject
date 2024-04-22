@@ -7,6 +7,12 @@ from Generation.TestRunner import TestRunner
 from Helper.PathHelper import PathHelper
 from Helper.TerminalPrinter import TerminalPrinter
 
+"""
+This class is a handler for the Evosuite, it orchestrates
+generating the testsuite, copying files into directories, handling errors running unit
+tests and mutation testing.
+"""
+
 class EvosuiteHandler(Handler):
 
     CSV_HEADERS: list = [
@@ -132,7 +138,7 @@ class EvosuiteHandler(Handler):
     
 
         if len(failure_test_names) != 0:
-
+            
             self.file_handler.add_import_in_file(new_evosuite_path, self.DISABLED_IMPORT)
 
 
@@ -223,5 +229,5 @@ class EvosuiteHandler(Handler):
         failed_tests.extend(re.findall(pattern7, output))
                 
         pattern8 = r"\w+_ESTest\.test(\d+):\d+.\s*MockIllegalArgument"
-        failed_tests.extend(re.findall(pattern6, output))
+        failed_tests.extend(re.findall(pattern8, output))
         return [f"test{test_number}" for test_number in failed_tests]

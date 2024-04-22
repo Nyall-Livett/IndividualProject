@@ -7,6 +7,10 @@ from File.FileSanitiser import FileSanitiser
 from Generation.Result import Result
 import re
 
+"""
+This class is a handler for LLM, i left this in as it was present when i conducted the research
+although it was disabled to just report "NoReport" due to reasons discussed in the report
+"""
 
 class LLM1Handler(Handler):
 
