@@ -63,6 +63,12 @@ Follow prompts on screen. I would advise not to say yes to starting training a m
 
 command `python3 DataProcessor.py`
 
+Download Evosuite 1.20 standalone runtime jar from 
+`https://github.com/EvoSuite/evosuite/releases/tag/v1.2.0`
+
+Inside the directory where the Evosuite 1.20 standalone runtime jar file is, run this
+command `mvn install:install-file -Dfile=./evosuite-standalone-runtime-1.2.0.jar -DgroupId=org.evosuite -DartifactId=evosuite-runtime -Dversion=1.2.0 -Dpackaging=jar`
+
 Start generating and evalating the tests
 
 command `python3 TestCaseGenerator.py`
