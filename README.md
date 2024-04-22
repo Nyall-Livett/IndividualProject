@@ -2,7 +2,6 @@
 
 All data from the research can be found the in the ResultData directory.
 
-
 Prerequisites to run the project ->
 
 Must be on a Mac
@@ -12,6 +11,8 @@ download and install
 JDK 1.8 https://docs.aws.amazon.com/corretto/latest/corretto-8-ug/downloads-list.html
 
 JDK 11 https://docs.aws.amazon.com/corretto/latest/corretto-11-ug/downloads-list.html
+
+You can check the versions install through this command `/usr/libexec/java_home -V`
 
 Python3.5+ https://www.python.org/downloads/
 
