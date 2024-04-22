@@ -69,6 +69,12 @@ Download Evosuite 1.20 standalone runtime jar from
 Inside the directory where the Evosuite 1.20 standalone runtime jar file is, run this
 command `mvn install:install-file -Dfile=./evosuite-standalone-runtime-1.2.0.jar -DgroupId=org.evosuite -DartifactId=evosuite-runtime -Dversion=1.2.0 -Dpackaging=jar`
 
+Download Evosuite 1.20 jar
+
+`https://github.com/EvoSuite/evosuite/releases/tag/v1.2.0`
+
+and copy to the root of the project
+
 Start generating and evalating the tests
 
 command `python3 TestCaseGenerator.py`
