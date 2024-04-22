@@ -13,7 +13,8 @@ class ShellCommandCenter(ICommandCenter):
         "javaparser": 11,
         "dolphinscheduler": 11,
         "questdb": 1.8,
-        "Hikari": 11
+        "Hikari": 11,
+        "IndividualProject-sample": 11
     }
 
     full_classpath_projects: list = ["dolphinscheduler", "jkube"]

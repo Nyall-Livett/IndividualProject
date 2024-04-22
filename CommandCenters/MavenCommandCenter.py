@@ -15,7 +15,8 @@ class MavenCommandCenter(BuildToolCommandCenter):
         "javaparser": 11,
         "dolphinscheduler": 11,
         "questdb": 1.8,
-        "Hikari": 11
+        "Hikari": 11,
+        "IndividualProject-sample": 11
     }
 
     def __init__(self, project_name):

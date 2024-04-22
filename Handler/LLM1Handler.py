@@ -61,7 +61,9 @@ class LLM1Handler(Handler):
 
 
     def execute(self):
-
+        """
+        DISABLED
+        """
         self.result.values.append("NoReport")
         self.result.values.append("NoReport")
         return 

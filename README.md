@@ -44,7 +44,7 @@ Create directory to hold the processed files
 command `mkdir processed_files`
 
 Initiate Dataprocessing stage. This traverse the project, finds test class pairs.
-Follow prompts on screen.
+Follow prompts on screen. I would advise not to say yes to starting training a model on the data. 
 
 command `python3 DataProcessor.py`
 
