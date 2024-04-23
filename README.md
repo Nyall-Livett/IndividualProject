@@ -82,7 +82,7 @@ Download Evosuite 1.20 jar
 
 `https://github.com/EvoSuite/evosuite/releases/tag/v1.2.0`
 
-and copy to the root of the project
+and copy to the root of the sample project - Nyall-Livett_IndividualProject-sample
 
 Start generating and evalating the tests
 
